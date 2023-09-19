@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
 function Dictionary() {
   const [inputValue, setInputValue] = useState('');
   const [searchedWord, setSearchedWord] = useState(null);
@@ -11,7 +12,7 @@ function Dictionary() {
       const response = await axios.get(`${API_URL}/${inputValue}`);
       const result = response.data[0];
       setSearchedWord(result);
-      console.log(result);
+      // console.log(result);
     } catch (error) {
       console.error(error);
     }
@@ -93,6 +94,7 @@ function Dictionary() {
         </div>
       )}
     </div>
+  
   );
 }
 

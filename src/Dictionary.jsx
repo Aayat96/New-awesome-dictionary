@@ -18,6 +18,13 @@ function Dictionary() {
     }
     setInputValue('');
   }
+  const handleKeyDown =(e) =>{
+    if (e.key === "Enter") {
+      setInputValue(e.target.value);
+      setInputValue('');
+      console.log(inputValue);
+    }
+  }
 
   return (
     <div className='container'>
@@ -29,7 +36,7 @@ function Dictionary() {
             className='form-control ps-3 border-primary-subtle'
             value={inputValue}
             placeholder='Search...'
-            onChange={e => setInputValue(e.target.value)}
+            onChange={e => setInputValue(e.target.value)} onKeyDown = {handleKeyDown}
           />
           <button
             type='button'

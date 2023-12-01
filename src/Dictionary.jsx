@@ -18,9 +18,20 @@ function Dictionary() {
     }
     setInputValue('');
   }
-  const handleKeyDown =(e) =>{
+  
+  async function handleKeyDown(e){
     if (e.key === "Enter") {
       setInputValue(e.target.value);
+
+      try {
+        const response = await axios.get(`${API_URL}/${inputValue}`);
+        const result = response.data[0];
+        setSearchedWord(result);
+        // console.log(result);
+      } catch (error) {
+        console.error(error);
+      }
+
       setInputValue('');
       console.log(inputValue);
     }
